@@ -1,6 +1,10 @@
 import Models.Doctor;
+import org.w3c.dom.ls.LSOutput;
 
 public class DataAccess {
+    public static void main(String[] args) {
+        System.out.println("aa");
+    }
 
     private static final DataAccess instance = new DataAccess();
 
