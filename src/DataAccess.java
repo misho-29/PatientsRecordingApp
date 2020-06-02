@@ -6,11 +6,6 @@ import RequestClasses.UpdatePatientRequest;
 import org.w3c.dom.ls.LSOutput;
 
 public class DataAccess {
-    public static void main(String[] args) {
-        UpdateDoctorRequest updateDoctorRequest = new UpdateDoctorRequest();
-        System.out.println(updateDoctorRequest.RequestResponse.ResponseStatus);
-    }
-
     private static final DataAccess instance = new DataAccess();
 
     //private constructor to avoid client applications to use constructor
