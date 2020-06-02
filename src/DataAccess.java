@@ -1,9 +1,14 @@
 import Models.Doctor;
+import RequestClasses.AddDoctorRequest;
+import RequestClasses.AddPatientRequest;
+import RequestClasses.UpdateDoctorRequest;
+import RequestClasses.UpdatePatientRequest;
 import org.w3c.dom.ls.LSOutput;
 
 public class DataAccess {
     public static void main(String[] args) {
-        System.out.println("aa");
+        UpdateDoctorRequest updateDoctorRequest = new UpdateDoctorRequest();
+        System.out.println(updateDoctorRequest.RequestResponse.ResponseStatus);
     }
 
     private static final DataAccess instance = new DataAccess();
