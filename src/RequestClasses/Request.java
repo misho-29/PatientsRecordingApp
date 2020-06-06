@@ -1,7 +1,7 @@
 package RequestClasses;
 
-import RequestClasses.RequestResponseClasses.ResponseStatus;
+import java.io.Serializable;
 
-public class Request {
+public class Request implements Serializable {
     public RequestAction RequestAction;
 }

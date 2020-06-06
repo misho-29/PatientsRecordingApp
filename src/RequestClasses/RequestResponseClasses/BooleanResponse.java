@@ -1,5 +1,7 @@
 package RequestClasses.RequestResponseClasses;
 
-public class BooleanResponse extends Response {
-    public Boolean IsCompleted = true;
+import java.io.Serializable;
+
+public class BooleanResponse implements Serializable {
+    public Boolean IsCompleted = null;
 }

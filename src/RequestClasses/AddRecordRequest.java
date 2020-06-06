@@ -9,5 +9,5 @@ public class AddRecordRequest extends Request {
     }
 
     public Record Record;
-    public BooleanResponse Response;
+    public BooleanResponse Response = new BooleanResponse();
 }

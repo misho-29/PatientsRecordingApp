@@ -11,5 +11,5 @@ public class GetRecordsRequest extends Request {
           this.RequestAction = RequestAction.GETRECORDS;
      }
 
-     public RecordsResponse RequestResponse;
+     public RecordsResponse Response = new RecordsResponse();
 }

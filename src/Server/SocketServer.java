@@ -1,3 +1,5 @@
+package Server;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,7 +18,7 @@ public class SocketServer {
         while (true){
             try {
                 Socket clientSocket = serverSocket.accept();
-                RunnableServer rs = new RunnableServer(clientSocket);
+                RunnableSocket rs = new RunnableSocket(clientSocket);
                 new Thread(rs).start();
             } catch (IOException e) {
                 System.out.println(e.getMessage());

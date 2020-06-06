@@ -9,5 +9,5 @@ public class UpdateDoctorRequest extends Request {
     }
 
     public Doctor Doctor;
-    public BooleanResponse RequestResponse;
+    public BooleanResponse Response = new BooleanResponse();
 }

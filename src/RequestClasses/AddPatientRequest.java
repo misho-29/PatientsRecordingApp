@@ -9,5 +9,5 @@ public class AddPatientRequest extends Request {
     }
 
     public Patient Patient;
-    public BooleanResponse Response;
+    public BooleanResponse Response = new BooleanResponse();
 }

@@ -10,5 +10,5 @@ public class GetPatientsRequest extends Request {
         this.RequestAction = RequestAction.GETPATIENTS;
     }
 
-    public PatientsResponse RequestResponse;
+    public PatientsResponse Response = new PatientsResponse();
 }

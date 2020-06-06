@@ -10,5 +10,5 @@ public class AddDoctorRequest extends Request {
     }
 
     public Doctor Doctor;
-    public BooleanResponse Response;
+    public BooleanResponse Response = new BooleanResponse();
 }

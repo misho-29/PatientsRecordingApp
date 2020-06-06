@@ -1,8 +1,9 @@
 package Models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Record {
+public class Record implements Serializable {
     public int getId() {
         return Id;
     }

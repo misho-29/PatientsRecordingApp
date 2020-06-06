@@ -10,5 +10,5 @@ public class UpdatePatientRequest extends Request {
     }
 
     public Patient Patient;
-    public BooleanResponse RequestResponse;
+    public BooleanResponse Response = new BooleanResponse();
 }

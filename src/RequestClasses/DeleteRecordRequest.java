@@ -8,5 +8,5 @@ public class DeleteRecordRequest extends Request {
     }
 
     public int RecordId;
-    public BooleanResponse Response;
+    public BooleanResponse Response = new BooleanResponse();
 }

@@ -1,9 +1,6 @@
+package Server;
+
 import Models.Doctor;
-import RequestClasses.AddDoctorRequest;
-import RequestClasses.AddPatientRequest;
-import RequestClasses.UpdateDoctorRequest;
-import RequestClasses.UpdatePatientRequest;
-import org.w3c.dom.ls.LSOutput;
 
 public class DataAccess {
     private static final DataAccess instance = new DataAccess();

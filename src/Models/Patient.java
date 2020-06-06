@@ -1,6 +1,8 @@
 package Models;
 
-public class Patient extends Person {
+import java.io.Serializable;
+
+public class Patient extends Person implements Serializable {
     public int getId() {
         return Id;
     }
