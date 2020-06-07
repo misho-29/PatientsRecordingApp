@@ -34,7 +34,7 @@ public class DataAccess {
             return doctors;
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return new ArrayList<Doctor>();
+            return null;
         }
     }
 
@@ -60,7 +60,7 @@ public class DataAccess {
             return patients;
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return new ArrayList<Patient>();
+            return null;
         }
     }
 
@@ -94,11 +94,13 @@ public class DataAccess {
                 record.setRecordDateTime(resultSet.getObject("datetime", LocalDateTime.class));
                 record.setPatient(patient);
                 record.setDoctor(doctor);
+
+                records.add(record);
             }
-            return new ArrayList<Record>();
+            return records;
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return new ArrayList<Record>();
+            return null;
         }
     }
 
