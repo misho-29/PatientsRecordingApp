@@ -11,5 +11,5 @@ public class Doctor extends Person implements Serializable {
         Id = id;
     }
 
-    public int Id;
+    private int Id;
 }

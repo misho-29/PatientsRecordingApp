@@ -12,19 +12,19 @@ public class Record implements Serializable {
         Id = id;
     }
 
-    public Models.Doctor getDoctor() {
+    public Doctor getDoctor() {
         return Doctor;
     }
 
-    public void setDoctor(Models.Doctor doctor) {
+    public void setDoctor(Doctor doctor) {
         Doctor = doctor;
     }
 
-    public Models.Patient getPatient() {
+    public Patient getPatient() {
         return Patient;
     }
 
-    public void setPatient(Models.Patient patient) {
+    public void setPatient(Patient patient) {
         Patient = patient;
     }
 
@@ -36,8 +36,8 @@ public class Record implements Serializable {
         RecordDateTime = recordDateTime;
     }
 
-    public int Id;
-    public Doctor Doctor;
-    public Patient Patient;
-    public LocalDateTime RecordDateTime;
+    private int Id;
+    private Doctor Doctor;
+    private Patient Patient;
+    private LocalDateTime RecordDateTime;
 }

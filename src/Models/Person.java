@@ -3,11 +3,11 @@ package Models;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-    public String getFirtsName() {
+    public String getFirstName() {
         return FirstName;
     }
 
-    public void setFirsName(String firsName) {
+    public void setFirstName(String firsName) {
         FirstName = firsName;
     }
 
@@ -19,6 +19,6 @@ public class Person implements Serializable {
         LastName = lastName;
     }
 
-    public String FirstName;
-    public String LastName;
+    private String FirstName;
+    private String LastName;
 }
