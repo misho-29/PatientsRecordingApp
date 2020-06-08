@@ -10,15 +10,22 @@ import java.util.ArrayList;
 
 public class DataAccess {
 
-    private DataAccess(){}
+    private DataAccess() throws SQLException {}
+    private static Connection connection;
+
+    static {
+        try {
+            connection = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/javaproject",
+                        "root",
+                        "misho1234");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static ArrayList<Doctor> getDoctors(){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM doctors");
 
@@ -40,11 +47,6 @@ public class DataAccess {
 
     public static ArrayList<Patient> getPatients(){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM patients");
 
@@ -66,11 +68,6 @@ public class DataAccess {
 
     public static ArrayList<Record> getRecords(){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM records INNER JOIN patients ON patients.id = records.patient_id INNER JOIN doctors ON doctors.id = records.doctor_id");
 
@@ -107,11 +104,6 @@ public class DataAccess {
 
     public static boolean setDoctor(Doctor doctor) {
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             String query = "UPDATE doctors SET first_name = ?, last_name = ? where id = ? ";
 
@@ -130,11 +122,6 @@ public class DataAccess {
 
     public static boolean setPatient(Patient patient) {
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             String query = "UPDATE patients SET first_name = ?, last_name = ? where id = ? ";
 
@@ -155,11 +142,6 @@ public class DataAccess {
 
     public static boolean createDoctor(Doctor doctor){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             String query = "INSERT INTO doctors(first_name, last_name) VALUES (?, ?)";
 
@@ -178,11 +160,6 @@ public class DataAccess {
 
     public static boolean createPatient(Patient patient){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             String query = "INSERT INTO patients(first_name, last_name) VALUES (?, ?)";
 
@@ -201,11 +178,6 @@ public class DataAccess {
 
     public static boolean createRecord(Record record){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             String query = "INSERT INTO records(patient_id, doctor_id, datetime) VALUES (?, ?, ?)";
 
@@ -224,11 +196,6 @@ public class DataAccess {
 
     public static boolean deleteRecord(Record record){
         try{
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/javaproject",
-                    "root",
-                    "toor");
-
             Statement statement = connection.createStatement();
             String query = "DELETE FROM records WHERE id = ?";
 

@@ -17,22 +17,18 @@ public class UnitTestsClient {
         try {
             System.out.println("Client");
             clientSocket = new Socket(hostname, portNumber);
-            // Create Our IO Streams
 
             OutputStream outputStream = clientSocket.getOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             InputStream inputStream = clientSocket.getInputStream();
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 
-            GetPatientsRequest getPatientsRequest = new GetPatientsRequest();
-            objectOutputStream.writeObject(getPatientsRequest);
-            getPatientsRequest = (GetPatientsRequest) objectInputStream.readObject();
-            System.out.println("Server.Server says: " + getPatientsRequest.Response.Patients.size());
-
-            AddPatientRequest addPatientRequest = new AddPatientRequest();
-            objectOutputStream.writeObject(addPatientRequest);
-            addPatientRequest = (AddPatientRequest) objectInputStream.readObject();
-            System.out.println("Server.Server says: " + addPatientRequest.Response.IsCompleted);
+            UpdateDoctorRequest updateDoctorRequest = new UpdateDoctorRequest();
+            updateDoctorRequest.Doctor.setId(2);
+            updateDoctorRequest.Doctor.setFirstName("aaaa");
+            objectOutputStream.writeObject(updateDoctorRequest);
+            updateDoctorRequest = (UpdateDoctorRequest) objectInputStream.readObject();
+            System.out.println("Server response: " + updateDoctorRequest.Response.IsCompleted);
 
             clientSocket.close();
         } catch (UnknownHostException e) {

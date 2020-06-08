@@ -9,6 +9,6 @@ public class AddDoctorRequest extends Request {
         this.RequestAction = RequestAction.ADDDOCTOR;
     }
 
-    public Doctor Doctor;
+    public Doctor Doctor = new Doctor();
     public BooleanResponse Response = new BooleanResponse();
 }

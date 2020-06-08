@@ -1,5 +1,6 @@
 package RequestClasses;
 
+import Models.Record;
 import RequestClasses.RequestResponseClasses.BooleanResponse;
 
 public class DeleteRecordRequest extends Request {
@@ -7,6 +8,6 @@ public class DeleteRecordRequest extends Request {
         this.RequestAction = RequestAction.DELETERECORD;
     }
 
-    public int RecordId;
+    public Record Record = new Record();
     public BooleanResponse Response = new BooleanResponse();
 }

@@ -8,6 +8,6 @@ public class UpdateDoctorRequest extends Request {
         this.RequestAction = RequestAction.UPDATEDOCTOR;
     }
 
-    public Doctor Doctor;
+    public Doctor Doctor = new Doctor();
     public BooleanResponse Response = new BooleanResponse();
 }

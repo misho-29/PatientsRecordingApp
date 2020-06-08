@@ -8,6 +8,6 @@ public class AddRecordRequest extends Request {
         this.RequestAction = RequestAction.ADDRECORD;
     }
 
-    public Record Record;
+    public Record Record = new Record();
     public BooleanResponse Response = new BooleanResponse();
 }
