@@ -31,7 +31,7 @@ public class UnitTestsClient {
     @Test
     public void addDoctorRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
         AddDoctorRequest addDoctorRequest = new AddDoctorRequest();
-        addDoctorRequest.Doctor.setFirstName("DobriiDoqtat");
+        addDoctorRequest.Doctor.setFirstName("DobriiDoqtar");
         addDoctorRequest.Doctor.setLastName("Aibalit");
 
         objectOutputStream.writeObject(addDoctorRequest);// gagzavnaa
@@ -76,6 +76,98 @@ public class UnitTestsClient {
         System.out.println("Server response: " + addRecordRequest.Response.IsCompleted);
 
         assertEquals(true , addRecordRequest.Response.IsCompleted);
+    }
+
+    @Test
+    public void DeleteRecordRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
+        Patient patient = new Patient();
+        patient.setFirstName("lasha");
+        patient.setLastName("khoriashvili");
+        patient.setId(10101);
+
+        Doctor doctor = new Doctor();
+        doctor.setFirstName("DobriiDoqtar");
+        doctor.setLastName("Aibalit");
+        doctor.setId(20202);
+
+        DeleteRecordRequest deleteRecordRequest = new DeleteRecordRequest();
+        deleteRecordRequest.Record.setId(3);
+        deleteRecordRequest.Record.setDoctor(doctor);
+        deleteRecordRequest.Record.setPatient(patient);
+        deleteRecordRequest.Record.setRecordDateTime(LocalDateTime.now());
+
+        objectOutputStream.writeObject(deleteRecordRequest);// gagzavnaa
+        deleteRecordRequest = (DeleteRecordRequest) objectInputStream.readObject(); //pasuxis migeba
+        System.out.println("Server response: " + deleteRecordRequest.Response.IsCompleted);
+
+        assertEquals(true , deleteRecordRequest.Response.IsCompleted);
+    }
+
+    @Test
+    public void GetDoctorsRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
+        GetDoctorsRequest getDoctorsRequest = new GetDoctorsRequest();
+
+        //cxrilshi eqimebis aryolis shemtxvevashic testi chabarebulad chaitvleba, tuki tavad methodi gamartulad mushaobs
+
+        objectOutputStream.writeObject(getDoctorsRequest);// gagzavnaa
+        getDoctorsRequest = (GetDoctorsRequest) objectInputStream.readObject(); //pasuxis migeba
+        System.out.println("is List of doctors empty?: " + getDoctorsRequest.Response.Doctors.isEmpty());
+
+        assertNotEquals(null,getDoctorsRequest.Response.Doctors);
+    }
+
+    @Test
+    public void GetPatiensRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
+        GetPatientsRequest getPatientsRequest = new GetPatientsRequest();
+
+        //cxrilshi pacientebis aryolis shemtxvevashic testi chabarebulad chaitvleba, tuki tavad methodi gamartulad mushaobs
+
+        objectOutputStream.writeObject(getPatientsRequest);// gagzavnaa
+        getPatientsRequest = (GetPatientsRequest) objectInputStream.readObject(); //pasuxis migeba
+        System.out.println("is List of Patients epmty?: " + getPatientsRequest.Response.Patients.isEmpty());
+
+        assertNotEquals(null,getPatientsRequest.Response.Patients);
+    }
+
+    @Test
+    public void GetRecordsRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
+        GetRecordsRequest getRecordsRequest = new GetRecordsRequest();
+
+        //cxrilshi pacientebis aryolis shemtxvevashic testi chabarebulad chaitvleba, tuki tavad methodi gamartulad mushaobs
+
+        objectOutputStream.writeObject(getRecordsRequest);// gagzavnaa
+        getRecordsRequest = (GetRecordsRequest) objectInputStream.readObject(); //pasuxis migeba
+        System.out.println("is List of Records epmty?: " + getRecordsRequest.Response.Records.isEmpty());
+
+        assertNotEquals(null,getRecordsRequest.Response.Records);
+    }
+
+    @Test
+    public void UpdatePatientRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
+        UpdatePatientRequest updatePatientRequest = new UpdatePatientRequest();
+        updatePatientRequest.Patient.setId(1);
+        updatePatientRequest.Patient.setFirstName("lasha1");
+        updatePatientRequest.Patient.setLastName("khoriashvili1");
+
+        objectOutputStream.writeObject(updatePatientRequest);// gagzavnaa
+        updatePatientRequest = (UpdatePatientRequest) objectInputStream.readObject(); //pasuxis migeba
+        System.out.println("Server response: " + updatePatientRequest.Response.IsCompleted);
+
+        assertEquals(true , updatePatientRequest.Response.IsCompleted);
+    }
+
+    @Test
+    public void UpdateDoctorsRequestTest() throws UnknownHostException,IOException,ClassNotFoundException{
+        UpdateDoctorRequest updateDoctorRequest = new UpdateDoctorRequest();
+        updateDoctorRequest.Doctor.setId(1);
+        updateDoctorRequest.Doctor.setFirstName("lasha1");
+        updateDoctorRequest.Doctor.setLastName("khoriashvili1");
+
+        objectOutputStream.writeObject(updateDoctorRequest);// gagzavnaa
+        updateDoctorRequest = (UpdateDoctorRequest) objectInputStream.readObject(); //pasuxis migeba
+        System.out.println("Server response: " + updateDoctorRequest.Response.IsCompleted);
+
+        assertEquals(true , updateDoctorRequest.Response.IsCompleted);
     }
 
     public static void main(String[] args) throws UnknownHostException,IOException,ClassNotFoundException {
