@@ -18,7 +18,7 @@ public class DataAccess {
             connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/javaproject",
                         "root",
-                        "misho1234");
+                        "LashaM1");
         } catch (SQLException e) {
             e.printStackTrace();
         }
